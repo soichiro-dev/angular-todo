@@ -1,6 +1,17 @@
-<ul *ngFor="let item of items">
-    <li>{{item}}　<button (click)="removeTodo(item)">削除</button></li>
-</ul>
+<!-- molecules 追加フォーム -->
+<div>
+    <textarea matInput #todo></textarea>
+    <button mat-raised-button (click)="addTodo(todo.value)">追加</button>
+</div>
 
-<input type="text" #todo>
-<button (click)="addTodo(todo.value)">追加</button>
+<!-- molecules リスト -->
+<div>
+    <mat-nav-list>
+        <mat-list-item *ngFor="let item of items">
+            <mat-checkbox>{{item}}</mat-checkbox>
+            <button mat-icon-button (click)="removeTodo(item)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-list-item>
+    </mat-nav-list>
+</div>
